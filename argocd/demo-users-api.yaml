@@ -1,0 +1,21 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: backstage-demo-users-api
+  namespace: argocd
+spec:
+  destination:
+    name: ''
+    namespace: ''
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: demo/users-api
+    repoURL: 'https://github.com/kauris-technology/kodedevops-backstage'
+    targetRevision: main
+    directory:
+      include: deployment.yaml
+  sources: []
+  project: default
+  syncPolicy:
+    automated: {}

@@ -1,0 +1,22 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: backstage-infra-dev
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: plateformteam
+  source:
+    repoURL: https://github.com/kauris-technology/kodedevops-backstage
+    targetRevision: HEAD
+    path: infra/dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: backstage-infra-dev
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+      allowEmpty: true
