@@ -13,8 +13,6 @@ spec:
     path: demo
     repoURL: 'https://github.com/kauris-technology/kodedevops-backstage'
     targetRevision: main
-    directory:
-      include: deployment.yaml
   sources: []
   project: default
   syncPolicy:
