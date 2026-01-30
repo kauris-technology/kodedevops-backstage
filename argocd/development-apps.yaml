@@ -1,25 +1,25 @@
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: backstage-apps-dev
-  namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
-spec:
-  project: plateformteam
-  source:
-    repoURL: https://github.com/kauris-technology/kodedevops-backstage
-    targetRevision: HEAD
-    path: apps/dev
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: backstage-apps-dev
-  syncPolicy:
-    automated:
-      selfHeal: true
-      prune: true
-      allowEmpty: true
-      syncOptions:
-        - CreateNamespace=true
-        - ServerSideApply=true  #
+# ---
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: backstage-apps-dev
+#   namespace: argocd
+#   finalizers:
+#     - resources-finalizer.argocd.argoproj.io
+# spec:
+#   project: plateformteam
+#   source:
+#     repoURL: https://github.com/kauris-technology/kodedevops-backstage
+#     targetRevision: HEAD
+#     path: apps/dev
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: backstage-apps-dev
+#   syncPolicy:
+#     automated:
+#       selfHeal: true
+#       prune: true
+#       allowEmpty: true
+#       syncOptions:
+#         - CreateNamespace=true
+#         - ServerSideApply=true  #
